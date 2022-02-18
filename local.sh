@@ -12,7 +12,7 @@ if [ -z "$server" ]
 then
     # run local server in the background:
     echo "No running Chat API server detected: launching."
-    cd $DEMO_HOME && ./local.sh &
+    cd $SCRIBBLE_HOME && ./local.sh &
 else
     echo "A server is already running on port $API_PORT"
 fi

@@ -10,10 +10,9 @@ export default function Home(){
 
   return (
     <div className="content">
-      <h1>🤗 SWE React Demo </h1>
+      <h1>🤗 Scribble</h1>
       <div>
-        <p className="quote">"A list is only as strong as its weakest link"</p>
-        <p className="quote-author">- Donald Knuth</p>
+        <h2>Make Scribble Art</h2>
       </div>
       <button
         onClick={() => navigateToPage('/rooms')}
@@ -26,6 +25,12 @@ export default function Home(){
         className="page-button"
       >
         View All Users
+      </button>
+      <button
+        onClick={() => navigateToPage('/layers')}
+        className="page-button"
+      >
+        View All Layers
       </button> 
     </div>
   );
