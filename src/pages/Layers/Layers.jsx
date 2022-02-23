@@ -97,6 +97,10 @@ export default function Layers() {
       <div>
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
       </div>
+      <div className='image-center'>
+        <img src='https://i.ibb.co/Sf7W06W/Blueberry.png' width='500' height='500'/>
+
+      </div>
     </div>
   )
 }
