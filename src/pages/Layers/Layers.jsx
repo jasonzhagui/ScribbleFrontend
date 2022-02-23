@@ -7,6 +7,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 import {backendurl} from '../../config';
 
 import './layers.css';
+import LayerItem from '../../components/LayerItem/LayerItem';
 
 export default function Layers() {
   const [rooms, setRooms] = useState(undefined);
@@ -94,12 +95,16 @@ export default function Layers() {
           </div>
         )}
       </div>
-
-      <div className='image-center parent'>
-          <img class="body"src={'https://i.ibb.co/bFPRST7/Blazer.png'} width="500" height="500"/>
-          <img class="head"src={'https://i.ibb.co/Sf7W06W/Blueberry.png'} width="500" height="500"/>
-          <img class="eyes"src={'https://i.ibb.co/8YT2fPt/Cyborg.png'} width="500" height="500"/>
-          <img class="mouth"src={'https://i.ibb.co/Vt8FqRg/Cigarettes.png'} width="500" height="500"/>    
+      <div>
+        <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
+      </div>
+      <div className='image-center'>
+          <LayerItem
+            body = {'https://i.ibb.co/bFPRST7/Blazer.png'}
+            head = {'https://i.ibb.co/Sf7W06W/Blueberry.png'}
+            eyes = {'https://i.ibb.co/8YT2fPt/Cyborg.png'}
+            mouth = {'https://i.ibb.co/Vt8FqRg/Cigarettes.png'}
+          />
       </div>
     </div>
   )
