@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Rooms from './pages/Rooms/Rooms';
 import Users from './pages/Users/Users';
+import Layers from './pages/Layers/Layers'; 
 
 import {backendurl} from './config';
 
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route exact={true} path={'/users'}>
               <Users />
+            </Route>
+            <Route exact={true} path={'/layers'}>
+              <Layers />
             </Route>
           </Switch>
         </Router>
