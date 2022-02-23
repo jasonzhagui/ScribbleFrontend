@@ -94,12 +94,12 @@ export default function Layers() {
           </div>
         )}
       </div>
-      <div>
-        <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
-      </div>
-      <div className='image-center'>
-        <img src='https://i.ibb.co/Sf7W06W/Blueberry.png' width='500' height='500'/>
 
+      <div className='image-center parent'>
+          <img class="body"src={'https://i.ibb.co/bFPRST7/Blazer.png'} width="500" height="500"/>
+          <img class="head"src={'https://i.ibb.co/Sf7W06W/Blueberry.png'} width="500" height="500"/>
+          <img class="eyes"src={'https://i.ibb.co/8YT2fPt/Cyborg.png'} width="500" height="500"/>
+          <img class="mouth"src={'https://i.ibb.co/Vt8FqRg/Cigarettes.png'} width="500" height="500"/>    
       </div>
     </div>
   )

@@ -52,3 +52,32 @@
   align-items: center;
   height: 500;
 }
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+  }
+.body {
+  position: relative;
+  top: 0;
+  left: 0;
+  }
+
+.head {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.eyes {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.mouth {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
