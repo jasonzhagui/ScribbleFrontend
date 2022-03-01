@@ -107,10 +107,10 @@ export default function Layers() {
         {showLayers &&
           <div className='image-center'>
             <LayerItem
-              body = {'https://i.ibb.co/bFPRST7/Blazer.png'}
-              head = {'https://i.ibb.co/Sf7W06W/Blueberry.png'}
-              eyes = {'https://i.ibb.co/8YT2fPt/Cyborg.png'}
-              mouth = {'https://i.ibb.co/Vt8FqRg/Cigarettes.png'}
+              body = {layers[0].blazer}
+              head = {layers[1].blueberry}
+              eyes = {layers[2].cyborg}
+              mouth = {layers[3].cigarette}
             />
           </div>
         }
