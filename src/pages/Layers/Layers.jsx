@@ -13,8 +13,6 @@ export default function Layers() {
   const [rooms, setRooms] = useState(undefined);
   const [layers, setLayers] = useState(undefined);
   const [error, setError] = useState(undefined);
-
-  
   
   const [body, setBody] = useState(undefined);
   const [head, setHead] = useState(undefined);
@@ -26,9 +24,9 @@ export default function Layers() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newRoomName, setNewRoomName] = useState('');
 
-  const [showLayers, setShowLayers] = useState(false);
-
   const history = useHistory();
+
+
 
   useEffect(() => {
     axios.get(`${backendurl}/layers/list`)
@@ -145,19 +143,17 @@ export default function Layers() {
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
       </div>
       
-
+      
+      <div className='image-center'>
+        <LayerItem
+          body = {body}
+          head = {head}
+          eyes = {eyes}
+          mouth = {mouth}
+        />
+      </div>
       <div>
-        <button className="page-button" onClick={() => setShowLayers(!showLayers)}> Show Scribble </button>
-        {showLayers &&
-          <div className='image-center'>
-            <LayerItem
-              body = {body}
-              head = {head}
-              eyes = {eyes}
-              mouth = {mouth}
-            />
-          </div>
-        }
+      <button className="page-button" onClick={() => setRefresh(refresh + 1) }> Draw Random Scribble </button>
       </div>
 
     </div>
