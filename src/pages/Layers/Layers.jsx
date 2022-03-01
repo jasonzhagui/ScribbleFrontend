@@ -106,6 +106,12 @@ export default function Layers() {
             mouth = {'https://i.ibb.co/Vt8FqRg/Cigarettes.png'}
           />
       </div>
+
+      <div>
+      <button className="page-button"> Draw Random Scribble </button>
+      
+      </div>
+
     </div>
   )
 }
