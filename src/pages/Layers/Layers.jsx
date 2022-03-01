@@ -19,6 +19,8 @@ export default function Layers() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newRoomName, setNewRoomName] = useState('');
 
+  const [showLayers, setShowLayers] = useState(false);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -98,18 +100,20 @@ export default function Layers() {
       <div>
         <button className="page-button" onClick={() => setIsModalOpen(true)}> Add New Room </button>
       </div>
-      <div className='image-center'>
-          <LayerItem
-            body = {'https://i.ibb.co/bFPRST7/Blazer.png'}
-            head = {'https://i.ibb.co/Sf7W06W/Blueberry.png'}
-            eyes = {'https://i.ibb.co/8YT2fPt/Cyborg.png'}
-            mouth = {'https://i.ibb.co/Vt8FqRg/Cigarettes.png'}
-          />
-      </div>
+      
 
       <div>
-      <button className="page-button"> Draw Random Scribble </button>
-      
+        <button className="page-button" onClick={() => setShowLayers(!showLayers)}> Show Scribble </button>
+        {showLayers &&
+          <div className='image-center'>
+            <LayerItem
+              body = {'https://i.ibb.co/bFPRST7/Blazer.png'}
+              head = {'https://i.ibb.co/Sf7W06W/Blueberry.png'}
+              eyes = {'https://i.ibb.co/8YT2fPt/Cyborg.png'}
+              mouth = {'https://i.ibb.co/Vt8FqRg/Cigarettes.png'}
+            />
+          </div>
+        }
       </div>
 
     </div>
