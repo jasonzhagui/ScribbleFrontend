@@ -14,6 +14,13 @@ export default function Layers() {
   const [layers, setLayers] = useState(undefined);
   const [error, setError] = useState(undefined);
 
+  
+  
+  const [body, setBody] = useState(undefined);
+  const [head, setHead] = useState(undefined);
+  const [eyes, setEyes] = useState(undefined);
+  const [mouth, setMouth] = useState(undefined); 
+
   const [refresh, setRefresh] = useState(undefined);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,7 +42,44 @@ export default function Layers() {
         console.log(error);
         setError(error);
       });
-  }, [refresh])
+    
+    axios.get(`${backendurl}/layers/body`)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data){
+          let bodyValues = Object.values(response.data[0])
+          setBody(bodyValues[Math.floor(Math.random() * bodyValues.length)]);
+        }
+      })
+
+    axios.get(`${backendurl}/layers/head`)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data){
+          let headValues = Object.values(response.data[0])
+          setHead(headValues[Math.floor(Math.random() * headValues.length)]);
+        }
+      })
+
+    axios.get(`${backendurl}/layers/eyes`)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data){
+          let eyesValues = Object.values(response.data[0])
+          setEyes(eyesValues[Math.floor(Math.random() * eyesValues.length)]);
+        }
+      })
+
+    axios.get(`${backendurl}/layers/mouth`)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data){
+          let mouthValues = Object.values(response.data[0])
+          setMouth(mouthValues[Math.floor(Math.random() * mouthValues.length)]);
+        }
+      })
+    }, 
+  [refresh])
 
   const handleCreateRoom = () => {
     axios.post(`${backendurl}/rooms/create/${newRoomName}`)
@@ -107,10 +151,10 @@ export default function Layers() {
         {showLayers &&
           <div className='image-center'>
             <LayerItem
-              body = {layers[0].blazer}
-              head = {layers[1].blueberry}
-              eyes = {layers[2].cyborg}
-              mouth = {layers[3].cigarette}
+              body = {body}
+              head = {head}
+              eyes = {eyes}
+              mouth = {mouth}
             />
           </div>
         }
