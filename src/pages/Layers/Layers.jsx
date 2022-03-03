@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
+import Select from 'react-select';
 
 import PageTitle from '../../components/PageTitle/PageTitle';
 import {backendurl} from '../../config';
@@ -18,6 +19,11 @@ export default function Layers() {
   const [head, setHead] = useState(undefined);
   const [eyes, setEyes] = useState(undefined);
   const [mouth, setMouth] = useState(undefined); 
+
+  var lst = [{value:'blueberry', label:'blueberry'}, 
+            {value:'orange', label:'orange'}, 
+            {value:'lemon', label:'lemon'},
+            {value:'lime', label:'lime'}]; 
 
   const [refresh, setRefresh] = useState(undefined);
 
@@ -101,6 +107,12 @@ export default function Layers() {
         </div>
       )}
       
+      <div>
+        <Select
+          placeholder = 'Choose a head'
+          options = {lst}
+        />
+      </div>
       
       <div className='image-center'>
         <LayerItem
