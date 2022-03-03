@@ -53,3 +53,14 @@
 .page-button:hover {
   background-color: #CBD5E1;
 }
+
+.page-dropdown {
+  min-width: 300px;
+  max-width: 400px;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

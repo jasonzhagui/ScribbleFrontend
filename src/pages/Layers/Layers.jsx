@@ -107,8 +107,9 @@ export default function Layers() {
         </div>
       )}
       
-      <div>
+      <div className="page-dropdown">
         <Select
+          isSearchable = {false}
           placeholder = 'Choose a head'
           options = {lst}
         />
