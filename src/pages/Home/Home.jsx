@@ -15,18 +15,6 @@ export default function Home(){
         <h2>Make Scribble Art</h2>
       </div>
       <button
-        onClick={() => navigateToPage('/rooms')}
-        className="page-button"
-      >
-        View All Rooms
-      </button>
-      <button
-        onClick={() => navigateToPage('/users')}
-        className="page-button"
-      >
-        View All Users
-      </button>
-      <button
         onClick={() => navigateToPage('/layers')}
         className="page-button"
       >
