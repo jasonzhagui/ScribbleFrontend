@@ -20,6 +20,8 @@ export default function Layers() {
   const [eyes, setEyes] = useState(undefined);
   const [mouth, setMouth] = useState(undefined); 
 
+  const [dropdown, setDropdown] = useState(undefined);
+
   var lst = [{value:'blueberry', label:'blueberry'}, 
             {value:'orange', label:'orange'}, 
             {value:'lemon', label:'lemon'},
@@ -35,6 +37,18 @@ export default function Layers() {
 
 
   useEffect(() => {
+    axios.get(`${backendurl}/layers/dropdownList`)
+      .then((response) => {
+        console.log("hey");
+        console.log(lst);
+        console.log(response.data);
+        console.log("hey");
+        console.log(response.data[0][0]);
+        if (response.data){
+          setDropdown(response.data)
+        }
+      })
+
     axios.get(`${backendurl}/layers/body`)
       .then((response) => {
         console.log(response.data);
