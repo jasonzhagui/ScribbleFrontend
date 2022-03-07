@@ -110,7 +110,31 @@ export default function Layers() {
       <div className="page-dropdown">
         <Select
           isSearchable = {false}
+          placeholder = 'Choose a body'
+          options = {lst}
+        />
+      </div>
+
+      <div className="page-dropdown">
+        <Select
+          isSearchable = {false}
           placeholder = 'Choose a head'
+          options = {lst}
+        />
+      </div>
+
+      <div className="page-dropdown">
+        <Select
+          isSearchable = {false}
+          placeholder = 'Choose a eyes'
+          options = {lst}
+        />
+      </div>
+
+      <div className="page-dropdown">
+        <Select
+          isSearchable = {false}
+          placeholder = 'Choose a mouth'
           options = {lst}
         />
       </div>
