@@ -35,18 +35,6 @@ export default function Layers() {
 
 
   useEffect(() => {
-    axios.get(`${backendurl}/layers/list`)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data){
-          setLayers(response.data);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-        setError(error);
-      });
-    
     axios.get(`${backendurl}/layers/body`)
       .then((response) => {
         console.log(response.data);
@@ -107,6 +95,18 @@ export default function Layers() {
         </div>
       )}
       
+      <div className='image-center'>
+        <LayerItem
+          body = {body}
+          head = {head}
+          eyes = {eyes}
+          mouth = {mouth}
+        />
+      </div>
+      <div>
+      <button className="page-button" onClick={() => setRefresh(refresh + 1) }> Draw Random Scribble </button>
+      </div>
+
       <div className="page-dropdown">
         <Select
           isSearchable = {false}
@@ -137,18 +137,6 @@ export default function Layers() {
           placeholder = 'Choose a mouth'
           options = {lst}
         />
-      </div>
-      
-      <div className='image-center'>
-        <LayerItem
-          body = {body}
-          head = {head}
-          eyes = {eyes}
-          mouth = {mouth}
-        />
-      </div>
-      <div>
-      <button className="page-button" onClick={() => setRefresh(refresh + 1) }> Draw Random Scribble </button>
       </div>
 
     </div>
