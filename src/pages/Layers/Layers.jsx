@@ -23,6 +23,8 @@ export default function Layers() {
 
   const [refresh, setRefresh] = useState(undefined);
 
+  const [scribble, setScribble] = useState([]);
+
   const history = useHistory();
 
   const refreshPage = ()=>{
@@ -76,6 +78,12 @@ export default function Layers() {
     }, 
   [refresh])
 
+  function testSetScribble(){
+    console.log("scribble");
+    setScribble([body,head,eyes,mouth])
+    console.log(scribble);
+
+  }
 
   return (
     <div className="content">
@@ -149,9 +157,8 @@ export default function Layers() {
           onChange={(e) => {setMouth(e.value)}}
         />
       </div>
-
       <div>
-      <button className="page-button"> Save My Scribble </button>
+        <button className="page-button" onClick={testSetScribble}> Save My Scribble </button>
       </div>
 
     </div>
