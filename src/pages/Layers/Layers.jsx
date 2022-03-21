@@ -12,7 +12,6 @@ import LayerItem from '../../components/LayerItem/LayerItem';
 
 export default function Layers() {
 
-  const [layers, setLayers] = useState(undefined);
   const [error, setError] = useState(undefined);
   
   const [body, setBody] = useState(undefined);
@@ -20,31 +19,17 @@ export default function Layers() {
   const [eyes, setEyes] = useState(undefined);
   const [mouth, setMouth] = useState(undefined); 
 
-  const [dropdown, setDropdown] = useState(undefined);
-
-  var lst = [{value:'blueberry', label:'blueberry'}, 
-            {value:'orange', label:'orange'}, 
-            {value:'lemon', label:'lemon'},
-            {value:'lime', label:'lime'}]; 
+  const [dropdown, setDropdown] = useState([]);
 
   const [refresh, setRefresh] = useState(undefined);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-
   const history = useHistory();
-
-
 
   useEffect(() => {
     axios.get(`${backendurl}/layers/dropdownList`)
       .then((response) => {
-        console.log("hey");
-        console.log(lst);
-        console.log(response.data);
-        console.log("hey");
-        console.log(response.data[0][0]);
         if (response.data){
+
           setDropdown(response.data)
         }
       })
@@ -122,34 +107,38 @@ export default function Layers() {
       </div>
 
       <div className="page-dropdown">
+        <h2>Body:</h2>
         <Select
           isSearchable = {false}
           placeholder = 'Choose a body'
-          options = {lst}
+          options = {dropdown[0]}
         />
       </div>
 
       <div className="page-dropdown">
+        <h2>Head:</h2>
         <Select
           isSearchable = {false}
           placeholder = 'Choose a head'
-          options = {lst}
+          options = {dropdown[1]}
         />
       </div>
 
       <div className="page-dropdown">
+      <h2>Eyes:</h2>
         <Select
           isSearchable = {false}
           placeholder = 'Choose a eyes'
-          options = {lst}
+          options = {dropdown[2]}
         />
       </div>
 
       <div className="page-dropdown">
+      <h2>Mouth:</h2>
         <Select
           isSearchable = {false}
           placeholder = 'Choose a mouth'
-          options = {lst}
+          options = {dropdown[3]}
         />
       </div>
 
