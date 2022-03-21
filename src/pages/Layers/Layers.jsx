@@ -30,7 +30,11 @@ export default function Layers() {
   const refreshPage = ()=>{
     window.location.reload();
   }
-
+  
+  function navigateToPage(path) {
+    history.push(path);
+  }
+  
   useEffect(() => {
     axios.get(`${backendurl}/layers/dropdownList`)
       .then((response) => {
@@ -158,7 +162,10 @@ export default function Layers() {
         />
       </div>
       <div>
-        <button className="page-button" onClick={testSetScribble}> Save My Scribble </button>
+        <button className="page-button" onClick={() => {
+          testSetScribble();
+          navigateToPage('/gallery');
+        }}> Save My Scribble </button>
       </div>
 
     </div>

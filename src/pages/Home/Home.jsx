@@ -18,7 +18,13 @@ export default function Home(){
         onClick={() => navigateToPage('/layers')}
         className="page-button"
       >
-        View All Layers
+        Draw a Scribble
+      </button> 
+      <button
+        onClick={() => navigateToPage('/gallery')}
+        className="page-button"
+      >
+        View my Gallery
       </button> 
     </div>
   );

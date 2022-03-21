@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Home from './pages/Home/Home';
 import Layers from './pages/Layers/Layers'; 
+import Gallery from './pages/Gallery/Gallery';
 
 import {backendurl} from './config';
 
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route exact={true} path={'/layers'}>
               <Layers />
+            </Route>
+            <Route exact={true} path={'/gallery'}>
+              <Gallery />
             </Route>
           </Switch>
         </Router>
