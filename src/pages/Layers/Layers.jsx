@@ -112,6 +112,7 @@ export default function Layers() {
           isSearchable = {false}
           placeholder = 'Choose a body'
           options = {dropdown[0]}
+          onChange={(e) => {setBody(e.value)}}
         />
       </div>
 
@@ -121,6 +122,7 @@ export default function Layers() {
           isSearchable = {false}
           placeholder = 'Choose a head'
           options = {dropdown[1]}
+          onChange={(e) => {setHead(e.value)}}
         />
       </div>
 
@@ -130,6 +132,7 @@ export default function Layers() {
           isSearchable = {false}
           placeholder = 'Choose a eyes'
           options = {dropdown[2]}
+          onChange={(e) => {setEyes(e.value)}}
         />
       </div>
 
@@ -139,6 +142,7 @@ export default function Layers() {
           isSearchable = {false}
           placeholder = 'Choose a mouth'
           options = {dropdown[3]}
+          onChange={(e) => {setMouth(e.value)}}
         />
       </div>
 
