@@ -150,6 +150,10 @@ export default function Layers() {
         />
       </div>
 
+      <div>
+      <button className="page-button"> Save My Scribble </button>
+      </div>
+
     </div>
   )
 }
