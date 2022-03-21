@@ -25,6 +25,10 @@ export default function Layers() {
 
   const history = useHistory();
 
+  const refreshPage = ()=>{
+    window.location.reload();
+  }
+
   useEffect(() => {
     axios.get(`${backendurl}/layers/dropdownList`)
       .then((response) => {
@@ -103,7 +107,7 @@ export default function Layers() {
         />
       </div>
       <div>
-      <button className="page-button" onClick={() => setRefresh(refresh + 1) }> Draw Random Scribble </button>
+      <button className="page-button" onClick={refreshPage}> Draw Random Scribble </button>
       </div>
 
       <div className="page-dropdown">
