@@ -39,6 +39,11 @@ export default function Gallery() {
       })
   }
 
+  function localTest() {
+    console.log(localStorage.getItem('username'));
+    console.log(localStorage.getItem('password'));
+  }
+
   return (
     <div className="content">
 
@@ -77,6 +82,10 @@ export default function Gallery() {
 
       <div>
         <button className="page-button" onClick={() => setIsModalOpen(true)}> input </button>
+      </div>
+
+      <div>
+        <button className="page-button" onClick={() => localTest()}> local test </button>
       </div>
 
     </div>

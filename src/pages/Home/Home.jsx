@@ -8,11 +8,25 @@ export default function Home(){
 
   const session = useSession();
 
+  const [logged, setLogged] = useState(false);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
+  useEffect(() => {
+    if(localStorage.getItem('username')){
+      setLogged(true);
+    }
+  })
+
   function navigateToPage(path) {
     history.push(path);
+  }
+
+  function clear() {
+    localStorage.clear();
+    setUsername('');
+    setPassword('');
+    setLogged(!logged);
   }
 
   return (
@@ -34,38 +48,49 @@ export default function Home(){
         View my Gallery
       </button> 
 
-      <div>
-        <label for = 'username'> Username: </label>
-        <input 
-          id = 'username'
-          type = 'text'
-          value = {username}
-          onChange = {(e) => setUsername(e.target.value)} />
-      </div>
+      {!logged &&
+        <>
+          <div>
+            <label for = 'username'> Username: </label>
+            <input 
+              id = 'username'
+              type = 'text'
+              value = {username}
+              onChange = {(e) => setUsername(e.target.value)} />
+          </div>
 
-      <div>
-      <label for = 'password'> Password: </label>
-        <input 
-          id = 'password'
-          type = 'password'
-          value = {password}
-          onChange = {(e) => setPassword(e.target.value)} />
-      </div>
+          <div>
+          <label for = 'password'> Password: </label>
+            <input 
+              id = 'password'
+              type = 'password'
+              value = {password}
+              onChange = {(e) => setPassword(e.target.value)} />
+          </div>
 
-      <button 
-        onClick={() => {localStorage.setItem('username', username); 
-          localStorage.setItem('password', password);}}
-        className="page-button"
-      >
-        Login
-      </button>
+          <button 
+            onClick={() => {
+              localStorage.setItem('username', username); 
+              localStorage.setItem('password', password);
+              setLogged(!logged);
+            }}
+            className="page-button"
+          >
+            Login
+          </button>
 
-      <button 
-        onClick={() => localStorage.clear()}
-        className="page-button"
-      >
-        Logout
-      </button>
+        </>
+      }
+
+      {logged && 
+        <button 
+          onClick={() => clear()}
+          className="page-button"
+        >
+          Logout
+        </button>
+      }
+      
 
     </div>
   );
