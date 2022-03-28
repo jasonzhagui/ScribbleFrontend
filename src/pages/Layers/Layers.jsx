@@ -25,7 +25,8 @@ export default function Layers() {
 
   const [refresh, setRefresh] = useState(undefined);
 
-  const [scribble, setScribble] = useState([]);
+  //const [scribble, setScribble] = useState([]);
+  const scribble = [body,head,eyes,mouth];
 
   const history = useHistory();
 
@@ -88,7 +89,6 @@ export default function Layers() {
 
   function testSetScribble(){
     console.log("scribble");
-    setScribble([body,head,eyes,mouth])
     console.log(scribble);
 
   }
@@ -122,6 +122,7 @@ export default function Layers() {
           mouth = {mouth}
         />
       </div>
+
       <div>
       <button className="page-button" onClick={refreshPage}> Draw Random Scribble </button>
       </div>
@@ -169,6 +170,10 @@ export default function Layers() {
         <button className="page-button" onClick={() => {
           testSetScribble();
           navigateToPage('/gallery');
+          localStorage.setItem('body', body);
+          localStorage.setItem('head', head);
+          localStorage.setItem('eyes', eyes);
+          localStorage.setItem('mouth', mouth);
         }}> Save My Scribble </button>
       </div>
 

@@ -8,6 +8,8 @@ import {backendurl} from '../../config';
 
 import './gallery.css';
 
+import LayerItem from '../../components/LayerItem/LayerItem';
+
 import {useSession} from '../../context/sessioncontext';
 
 export default function Gallery() {
@@ -57,6 +59,15 @@ export default function Gallery() {
         >
           {"<--"}Go Back Home
         </button>
+      </div>
+
+      <div className='image-center'>
+        <LayerItem
+          body = {localStorage.getItem('body')}
+          head = {localStorage.getItem('head')}
+          eyes = {localStorage.getItem('eyes')}
+          mouth = {localStorage.getItem('mouth')}
+        />
       </div>
 
       {isModalOpen && 
