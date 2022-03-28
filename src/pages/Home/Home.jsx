@@ -47,6 +47,12 @@ export default function Home(){
         Local Storage
       </button>
       
+      <button 
+        onClick={() => localStorage.clear()}
+        className="page-button"
+      >
+        Clear Local Storage
+      </button>
 
     </div>
   );
