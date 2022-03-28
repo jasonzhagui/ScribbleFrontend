@@ -11,22 +11,6 @@ export default function Home(){
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
-  function testLocalStorage() {
-    localStorage.setItem('username', 'abdel');
-    localStorage.setItem('password', 'password');
-    console.log('local storage username');
-    console.log(localStorage.getItem('username'));
-    console.log('local storage password');
-    console.log(localStorage.getItem('password'));
-  }
-
-  function testInputs() {
-    console.log('test input username');
-    console.log(username);
-    console.log('test input password');
-    console.log(password);
-  }
-
   function navigateToPage(path) {
     history.push(path);
   }
@@ -50,21 +34,8 @@ export default function Home(){
         View my Gallery
       </button> 
 
-      <button 
-        onClick={() => testLocalStorage()}
-        className="page-button"
-      >
-        Local Storage
-      </button>
-      
-      <button 
-        onClick={() => localStorage.clear()}
-        className="page-button"
-      >
-        Clear Local Storage
-      </button>
-
       <div>
+        <label for = 'username'> Username: </label>
         <input 
           id = 'username'
           type = 'text'
@@ -73,6 +44,7 @@ export default function Home(){
       </div>
 
       <div>
+      <label for = 'password'> Password: </label>
         <input 
           id = 'password'
           type = 'password'
@@ -81,10 +53,18 @@ export default function Home(){
       </div>
 
       <button 
-        onClick={() => testInputs()}
+        onClick={() => {localStorage.setItem('username', username); 
+          localStorage.setItem('password', password);}}
         className="page-button"
       >
-        test inputs
+        Login
+      </button>
+
+      <button 
+        onClick={() => localStorage.clear()}
+        className="page-button"
+      >
+        Logout
       </button>
 
     </div>
