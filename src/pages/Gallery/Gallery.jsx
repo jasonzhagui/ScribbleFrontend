@@ -53,16 +53,16 @@ export default function Gallery() {
       {isModalOpen && 
         <div className="create-modal">
           <input
-            value1={category}
-            onChange={(e) => { setCategory(e.target.value1);}}
+            value={category}
+            onChange={(e) => { setCategory(e.target.value) }}
           />
           <input
-            value2={newName}
-            onChange={(e) => { setNewName(e.target.value2); }}
+            value={newName}
+            onChange={(e) => { setNewName(e.target.value) }}
           />
           <input
-            value3={newLink}
-            onChange={(e) => { setNewLink(e.target.value3) }}
+            value={newLink}
+            onChange={(e) => { setNewLink(e.target.value) }}
           />
           <div className="create-actions">
             <button className="button" onClick={handleCreateLayer}>Create New Layer</button>
