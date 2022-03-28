@@ -8,6 +8,8 @@ import {backendurl} from '../../config';
 
 import './gallery.css';
 
+import {useSession} from '../../context/sessioncontext';
+
 export default function Gallery() {
 
   const history = useHistory();
@@ -20,6 +22,8 @@ export default function Gallery() {
   const [newLink, setNewLink] = useState('');
 
   useEffect(() => {}, [refresh])
+
+  const session = useSession();
 
   const handleCreateLayer = () => {
     axios.post(`${backendurl}/layers/create/${category}/${newName}/${newLink}`)

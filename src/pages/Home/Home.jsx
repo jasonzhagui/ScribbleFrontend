@@ -1,12 +1,16 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
+import {useSession} from '../../context/sessioncontext';
+
 export default function Home(){
   const history = useHistory();
 
   function navigateToPage(path) {
     history.push(path);
   }
+
+  const session = useSession();
 
   return (
     <div className="content">

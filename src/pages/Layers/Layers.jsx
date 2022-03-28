@@ -10,6 +10,8 @@ import {backendurl} from '../../config';
 import './layers.css';
 import LayerItem from '../../components/LayerItem/LayerItem';
 
+import {useSession} from '../../context/sessioncontext';
+
 export default function Layers() {
 
   const [error, setError] = useState(undefined);
@@ -34,6 +36,8 @@ export default function Layers() {
   function navigateToPage(path) {
     history.push(path);
   }
+
+  const session = useSession();
   
   useEffect(() => {
     axios.get(`${backendurl}/layers/dropdownList`)

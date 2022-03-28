@@ -5,6 +5,8 @@ import Home from './pages/Home/Home';
 import Layers from './pages/Layers/Layers'; 
 import Gallery from './pages/Gallery/Gallery';
 
+import {SessionProvider} from './context/sessioncontext';
+
 import {backendurl} from './config';
 
 import './App.css';
@@ -14,19 +16,21 @@ function App() {
   return (
     <div className="root">
       <div className="content">
-        <Router>
-          <Switch>
-            <Route exact={true} path={'/'}>
-              <Home />
-            </Route>
-            <Route exact={true} path={'/layers'}>
-              <Layers />
-            </Route>
-            <Route exact={true} path={'/gallery'}>
-              <Gallery />
-            </Route>
-          </Switch>
-        </Router>
+        <SessionProvider>
+          <Router>
+            <Switch>
+              <Route exact={true} path={'/'}>
+                <Home />
+              </Route>
+              <Route exact={true} path={'/layers'}>
+                <Layers />
+              </Route>
+              <Route exact={true} path={'/gallery'}>
+                <Gallery />
+              </Route>
+            </Switch>
+          </Router>
+        </SessionProvider>
       </div>
     </div>
   );
