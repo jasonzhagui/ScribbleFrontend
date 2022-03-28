@@ -8,13 +8,23 @@ export default function Home(){
 
   const session = useSession();
 
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
   function testLocalStorage() {
     localStorage.setItem('username', 'abdel');
     localStorage.setItem('password', 'password');
-    console.log('username');
+    console.log('local storage username');
     console.log(localStorage.getItem('username'));
-    console.log('password');
+    console.log('local storage password');
     console.log(localStorage.getItem('password'));
+  }
+
+  function testInputs() {
+    console.log('test input username');
+    console.log(username);
+    console.log('test input password');
+    console.log(password);
   }
 
   function navigateToPage(path) {
@@ -52,6 +62,29 @@ export default function Home(){
         className="page-button"
       >
         Clear Local Storage
+      </button>
+
+      <div>
+        <input 
+          id = 'username'
+          type = 'text'
+          value = {username}
+          onChange = {(e) => setUsername(e.target.value)} />
+      </div>
+
+      <div>
+        <input 
+          id = 'password'
+          type = 'password'
+          value = {password}
+          onChange = {(e) => setPassword(e.target.value)} />
+      </div>
+
+      <button 
+        onClick={() => testInputs()}
+        className="page-button"
+      >
+        test inputs
       </button>
 
     </div>
