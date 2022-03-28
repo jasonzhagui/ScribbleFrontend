@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {useSession} from '../../context/sessioncontext';
@@ -6,11 +6,20 @@ import {useSession} from '../../context/sessioncontext';
 export default function Home(){
   const history = useHistory();
 
+  const session = useSession();
+
+  function testLocalStorage() {
+    localStorage.setItem('username', 'abdel');
+    localStorage.setItem('password', 'password');
+    console.log('username');
+    console.log(localStorage.getItem('username'));
+    console.log('password');
+    console.log(localStorage.getItem('password'));
+  }
+
   function navigateToPage(path) {
     history.push(path);
   }
-
-  const session = useSession();
 
   return (
     <div className="content">
@@ -30,6 +39,15 @@ export default function Home(){
       >
         View my Gallery
       </button> 
+
+      <button 
+        onClick={() => testLocalStorage()}
+        className="page-button"
+      >
+        Local Storage
+      </button>
+      
+
     </div>
   );
 };
