@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import axios from 'axios';
+import {backendurl} from '../../config';
 
 import {useSession} from '../../context/sessioncontext';
 
@@ -17,6 +19,20 @@ export default function Home(){
       setLogged(true);
     }
   })
+
+  const handleLogin = () => {
+    axios.get(`${backendurl}/user/${username}/${password}`)
+      .then((response) => {
+        if (response.data){
+          console.log(response.data);
+          console.log("username: ",username);
+          console.log("password: ", password);
+          localStorage.setItem('username', username); 
+          localStorage.setItem('password', password);
+          setLogged(!logged);
+        }
+      })
+  }
 
   function navigateToPage(path) {
     history.push(path);
@@ -70,9 +86,7 @@ export default function Home(){
 
           <button 
             onClick={() => {
-              localStorage.setItem('username', username); 
-              localStorage.setItem('password', password);
-              setLogged(!logged);
+              handleLogin();
             }}
             className="page-button"
           >
