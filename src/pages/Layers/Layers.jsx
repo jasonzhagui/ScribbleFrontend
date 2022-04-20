@@ -123,6 +123,7 @@ export default function Layers() {
               head={head}
               eyes={eyes}
               mouth={mouth}
+              size={500}
             />
           </div>
         </div>
