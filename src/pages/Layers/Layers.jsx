@@ -49,41 +49,24 @@ export default function Layers() {
         }
       })
 
-    axios.get(`${backendurl}/layers/body`)
+    axios.get(`${backendurl}/layers/list`)
       .then((response) => {
         console.log(response.data);
         if (response.data) {
           let bodyValues = Object.values(response.data[0])
           setBody(bodyValues[Math.floor(Math.random() * bodyValues.length)]);
-        }
-      })
 
-    axios.get(`${backendurl}/layers/head`)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data) {
-          let headValues = Object.values(response.data[0])
+          let headValues = Object.values(response.data[1])
           setHead(headValues[Math.floor(Math.random() * headValues.length)]);
-        }
-      })
 
-    axios.get(`${backendurl}/layers/eyes`)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data) {
-          let eyesValues = Object.values(response.data[0])
+          let eyesValues = Object.values(response.data[2])
           setEyes(eyesValues[Math.floor(Math.random() * eyesValues.length)]);
-        }
-      })
 
-    axios.get(`${backendurl}/layers/mouth`)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data) {
-          let mouthValues = Object.values(response.data[0])
+          let mouthValues = Object.values(response.data[3])
           setMouth(mouthValues[Math.floor(Math.random() * mouthValues.length)]);
         }
       })
+
   },
     [refresh])
 
