@@ -137,7 +137,150 @@ export default function Home() {
         </div>
 
       </div>
+      <div>
+        <center>
+          <h1>More Scribbles</h1>
+          <p1>Click on any character to edit</p1>
+        </center>
+      </div>
 
+      <div class="flex-home-container">
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="flex-home-container">
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="flex-home-container">
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+        <div class="flex-home-item-right">
+
+          <div className='image-home-center ' onClick={e => console.log("Clicked")}>
+            <LayerItem
+              body={"https://i.ibb.co/bFPRST7/Blazer.png"}
+              head={"https://i.ibb.co/Sf7W06W/Blueberry.png"}
+              eyes={"https://i.ibb.co/qLHdSgh/Cool-Shades.png"}
+              mouth={"https://i.ibb.co/sHM8bjW/Angry.png"}
+              size={300}
+            />
+          </div>
+
+        </div>
+
+      </div>
     </div>
   );
 };
