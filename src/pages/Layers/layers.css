@@ -68,7 +68,7 @@
 .flex-item-right {
   outline-style: solid;
   outline-width: thick;
-  padding: 10px;
+  padding: 0px;
   flex: 50%;
 }
 

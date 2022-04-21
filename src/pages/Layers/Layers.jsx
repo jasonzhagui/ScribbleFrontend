@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import Select from 'react-select';
 
@@ -22,6 +22,7 @@ export default function Layers() {
   const [mouth, setMouth] = useState(undefined);
 
   const [dropdown, setDropdown] = useState([]);
+  const [layers, setLayers] = useState([]);
 
   const [refresh, setRefresh] = useState(undefined);
 
@@ -40,6 +41,8 @@ export default function Layers() {
 
   const session = useSession();
 
+  const search = useLocation().search;
+
   useEffect(() => {
     axios.get(`${backendurl}/layers/dropdownList`)
       .then((response) => {
@@ -51,19 +54,32 @@ export default function Layers() {
 
     axios.get(`${backendurl}/layers/list`)
       .then((response) => {
-        console.log(response.data);
         if (response.data) {
-          let bodyValues = Object.values(response.data[0])
-          setBody(bodyValues[Math.floor(Math.random() * bodyValues.length)]);
+          setLayers(response.data)
 
-          let headValues = Object.values(response.data[1])
-          setHead(headValues[Math.floor(Math.random() * headValues.length)]);
+          let newBody = new URLSearchParams(search).get('body');
+          let newHead = new URLSearchParams(search).get('head');
+          let newEyes = new URLSearchParams(search).get('eyes');
+          let newMouth = new URLSearchParams(search).get('mouth');
+        
+          
+          if (!newBody){
 
-          let eyesValues = Object.values(response.data[2])
-          setEyes(eyesValues[Math.floor(Math.random() * eyesValues.length)]);
+            let bodyValues = Object.values(response.data[0])
+            setBody(bodyValues[Math.floor(Math.random() * bodyValues.length)]);
+            let headValues = Object.values(response.data[1])
+            setHead(headValues[Math.floor(Math.random() * headValues.length)]);
+            let eyesValues = Object.values(response.data[2])
+            setEyes(eyesValues[Math.floor(Math.random() * eyesValues.length)]);
+            let mouthValues = Object.values(response.data[3])
+            setMouth(mouthValues[Math.floor(Math.random() * mouthValues.length)]);
 
-          let mouthValues = Object.values(response.data[3])
-          setMouth(mouthValues[Math.floor(Math.random() * mouthValues.length)]);
+          } else{
+            setBody(newBody)
+            setHead(newHead)
+            setEyes(newEyes)
+            setMouth(newMouth)
+          }
         }
       })
 
@@ -75,6 +91,10 @@ export default function Layers() {
     console.log(scribble);
 
   }
+
+
+
+  
 
   return (
     <div className="content">
@@ -154,9 +174,9 @@ export default function Layers() {
       </div>
 
       <div id="container">
-        <button id = "options" onClick={refreshPage}> Draw Random Scribble </button>
+        <button id="options" onClick={() => window.location.href=`?`}> Draw Random Scribble </button>
 
-        <button id = "options" onClick={() => {
+        <button id="options" onClick={() => {
           testSetScribble();
           navigateToPage('/gallery');
           localStorage.setItem('body', body);
