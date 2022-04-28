@@ -1,0 +1,51 @@
+.image-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .flex-item-left {
+    padding: 50px;
+    flex: 50%;
+  }
+  
+  .flex-item-right {
+    outline-style: solid;
+    outline-width: thick;
+    padding: 0px;
+    flex: 50%;
+  }
+  
+  @media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  }
+  
+  #container {
+    text-align: center;
+  }
+
+  .page-sign-button {
+    min-width: 150px;
+    max-width: 400px;
+    border: 1px solid #94A3B8;
+    background-color: #E2E8F0;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    margin-right: 10px;
+    margin-top: 10px
+  }
