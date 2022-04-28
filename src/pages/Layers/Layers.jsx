@@ -31,14 +31,6 @@ export default function Layers() {
 
   const history = useHistory();
 
-  const refreshPage = () => {
-    window.location.reload();
-  }
-
-  function navigateToPage(path) {
-    history.push(path);
-  }
-
   const session = useSession();
 
   const search = useLocation().search;
@@ -100,6 +92,7 @@ export default function Layers() {
       .then((response) => {
         if (response.data) {
           console.log(response.data);
+          
         }
       })
   }
@@ -188,7 +181,7 @@ export default function Layers() {
 
         <button id="options" onClick={() => {
           handleCreateScribble();
-          navigateToPage(`gallery/?body=${scribble[0]}&head=${scribble[1]}&eyes=${scribble[2]}&mouth=${scribble[3]}`);
+          document.location.href= `gallery/?body=${scribble[0]}&head=${scribble[1]}&eyes=${scribble[2]}&mouth=${scribble[3]}`;
         }}> Save My Scribble </button>
       </div>
 
