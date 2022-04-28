@@ -79,6 +79,7 @@ export default function Layers() {
             setHead(newHead)
             setEyes(newEyes)
             setMouth(newMouth)
+            
           }
         }
       })
@@ -86,13 +87,22 @@ export default function Layers() {
   },
     [refresh])
 
-  function testSetScribble() {
-    console.log("scribble");
-    console.log(scribble);
+  const handleCreateScribble = () => {
+    var newLayers = {}
+    for (var doc in layers){
+      for (var item in layers[doc]){
+        newLayers[layers[doc][item]] = item;
+      }
+    }
 
+    var username = localStorage.getItem('username');
+    axios.post(`${backendurl}scribbles/create/${username}/${newLayers[scribble[0]]}/${newLayers[scribble[1]]}/${newLayers[scribble[2]]}/${newLayers[scribble[3]]}`)
+      .then((response) => {
+        if (response.data) {
+          console.log(response.data);
+        }
+      })
   }
-
-
 
   
 
@@ -177,12 +187,8 @@ export default function Layers() {
         <button id="options" onClick={() => window.location.href=`?`}> Draw Random Scribble </button>
 
         <button id="options" onClick={() => {
-          testSetScribble();
-          navigateToPage('/gallery');
-          localStorage.setItem('body', body);
-          localStorage.setItem('head', head);
-          localStorage.setItem('eyes', eyes);
-          localStorage.setItem('mouth', mouth);
+          handleCreateScribble();
+          navigateToPage(`gallery/?body=${scribble[0]}&head=${scribble[1]}&eyes=${scribble[2]}&mouth=${scribble[3]}`);
         }}> Save My Scribble </button>
       </div>
 
