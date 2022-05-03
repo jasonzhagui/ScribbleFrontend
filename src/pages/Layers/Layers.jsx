@@ -92,12 +92,11 @@ export default function Layers() {
       .then((response) => {
         if (response.data) {
           console.log(response.data);
-          
+          window.location.href =  `${window.location.origin}/gallery/?body=${scribble[0]}&head=${scribble[1]}&eyes=${scribble[2]}&mouth=${scribble[3]}`
         }
       })
   }
 
-  
 
   return (
     <div className="content">
@@ -181,7 +180,6 @@ export default function Layers() {
 
         <button id="options" onClick={() => {
           handleCreateScribble();
-          document.location.href= `gallery/?body=${scribble[0]}&head=${scribble[1]}&eyes=${scribble[2]}&mouth=${scribble[3]}`;
         }}> Save My Scribble </button>
       </div>
 
