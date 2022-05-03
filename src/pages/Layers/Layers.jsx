@@ -88,7 +88,7 @@ export default function Layers() {
     }
 
     var username = localStorage.getItem('username');
-    axios.post(`${backendurl}scribbles/create/${username}/${newLayers[scribble[0]]}/${newLayers[scribble[1]]}/${newLayers[scribble[2]]}/${newLayers[scribble[3]]}`)
+    axios.post(`${backendurl}/scribbles/create/${username}/${newLayers[scribble[0]]}/${newLayers[scribble[1]]}/${newLayers[scribble[2]]}/${newLayers[scribble[3]]}`)
       .then((response) => {
         if (response.data) {
           console.log(response.data);
