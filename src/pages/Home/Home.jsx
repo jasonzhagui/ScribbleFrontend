@@ -32,40 +32,41 @@ export default function Home() {
 
           let bodyValues = [];
           let bodyKeys = Object.values(response.data[0])
-          for (let i = 0; i < 9; i++) {
-            bodyValues.push(bodyKeys[Math.floor(Math.random() * bodyKeys.length)]);
-
-          }
-          setBodies(bodyValues);
-
 
           let headValues = [];
           let headKeys = Object.values(response.data[1])
-          for (let i = 0; i < 9; i++) {
-            headValues.push(headKeys[Math.floor(Math.random() * headKeys.length)]);
-
-          }
-          setHeads(headValues);
 
           let eyesValues = [];
           let eyesKeys = Object.values(response.data[2])
-          for (let i = 0; i < 9; i++) {
-            eyesValues.push(eyesKeys[Math.floor(Math.random() * eyesKeys.length)]);
-
-          }
-          setEyes(eyesValues);
 
           let mouthValues = [];
           let mouthKeys = Object.values(response.data[3])
-          for (let i = 0; i < 9; i++) {
-            mouthValues.push(mouthKeys[Math.floor(Math.random() * mouthKeys.length)]);
 
+          for (let i = 0; i < 9; i++) {
+            bodyValues.push(bodyKeys[Math.floor(Math.random() * bodyKeys.length)]);
+            headValues.push(headKeys[Math.floor(Math.random() * headKeys.length)]);
+            eyesValues.push(eyesKeys[Math.floor(Math.random() * eyesKeys.length)]);
+            mouthValues.push(mouthKeys[Math.floor(Math.random() * mouthKeys.length)]);
           }
+          setBodies(bodyValues);
+          setHeads(headValues);
+          setEyes(eyesValues);
           setMouths(mouthValues);
+
 
         }
       })
   }, [])
+
+  const scribbles = bodies.map((b, index) => {
+    return {
+      id: index,
+      body: b,
+      head: heads[index],
+      eyes: eyes[index],
+      mouth: mouths[index]
+    }
+  });
 
   const handleLogin = () => {
     axios.get(`${backendurl}/user/${username}/${password}`)
@@ -93,7 +94,7 @@ export default function Home() {
   }
 
   return (
-    <div className="content">
+    <div className="content-home">
       <h1>Scribble</h1>
       <div>
         <h2>Make Scribble Art</h2>
@@ -182,6 +183,7 @@ export default function Home() {
         </div>
 
       </div>
+      
       <div>
         <center>
           <h1>More Scribbles</h1>
@@ -189,144 +191,28 @@ export default function Home() {
         </center>
       </div>
 
-      <div class="flex-home-container">
+      <div class="flex-home-container-scroll">
 
-        <div class="flex-home-item-right">
+        {scribbles.map((scribble) => {
 
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[0]}&head=${heads[0]}&eyes=${eyes[0]}&mouth=${mouths[0]}`}>
-            <LayerItem
-              body={bodies[0]}
-              head={heads[0]}
-              eyes={eyes[0]}
-              mouth={mouths[0]}
-              size={300}
-            />
-          </div>
+            return <div class="flex-home-item-right">
+                      <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${scribble.body}&head=${scribble.head}&eyes=${scribble.eyes}&mouth=${scribble.mouth}`}>
+                        <LayerItem
+                          body={scribble.body}
+                          head={scribble.head}
+                          eyes={scribble.eyes}
+                          mouth={scribble.mouth}
+                          size={300}
+                        />
+                      </div>
+                  </div>
 
-        </div>
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[1]}&head=${heads[1]}&eyes=${eyes[1]}&mouth=${mouths[1]}`}>
-            <LayerItem
-              body={bodies[1]}
-              head={heads[1]}
-              eyes={eyes[1]}
-              mouth={mouths[1]}
-              size={300}
-            />
-          </div>
+        })}
 
         </div>
 
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[2]}&head=${heads[2]}&eyes=${eyes[2]}&mouth=${mouths[2]}`}>
-            <LayerItem
-              body={bodies[2]}
-              head={heads[2]}
-              eyes={eyes[2]}
-              mouth={mouths[2]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="flex-home-container">
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[3]}&head=${heads[3]}&eyes=${eyes[3]}&mouth=${mouths[3]}`}>
-            <LayerItem
-              body={bodies[3]}
-              head={heads[3]}
-              eyes={eyes[3]}
-              mouth={mouths[3]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[4]}&head=${heads[4]}&eyes=${eyes[4]}&mouth=${mouths[4]}`}>
-            <LayerItem
-              body={bodies[4]}
-              head={heads[4]}
-              eyes={eyes[4]}
-              mouth={mouths[4]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center 'onClick={e => window.location.href=`layers/?body=${bodies[5]}&head=${heads[5]}&eyes=${eyes[5]}&mouth=${mouths[5]}`}>
-            <LayerItem
-              body={bodies[5]}
-              head={heads[5]}
-              eyes={eyes[5]}
-              mouth={mouths[5]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="flex-home-container">
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[6]}&head=${heads[6]}&eyes=${eyes[6]}&mouth=${mouths[6]}`}>
-            <LayerItem
-              body={bodies[6]}
-              head={heads[6]}
-              eyes={eyes[6]}
-              mouth={mouths[6]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[7]}&head=${heads[7]}&eyes=${eyes[7]}&mouth=${mouths[7]}`}>
-            <LayerItem
-              body={bodies[7]}
-              head={heads[7]}
-              eyes={eyes[7]}
-              mouth={mouths[7]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => window.location.href=`layers/?body=${bodies[8]}&head=${heads[8]}&eyes=${eyes[8]}&mouth=${mouths[8]}`}>
-            <LayerItem
-              body={bodies[8]}
-              head={heads[8]}
-              eyes={eyes[8]}
-              mouth={mouths[8]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-      </div>
     </div>
+
   );
 };
 
