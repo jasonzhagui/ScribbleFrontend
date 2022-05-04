@@ -1,5 +1,5 @@
 .content-home {
-    width: 1000px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,6 +8,7 @@
   }
 
 .flex-home-container {
+    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -15,13 +16,12 @@
 }
 
 .flex-home-container-scroll {
-    width: 100%;
+    width: 300%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     overflow-x: scroll;
     overflow-y: hidden;
+
 }
   
 .flex-home-item-left {
@@ -31,6 +31,7 @@
     flex: 50%;
     width: 500px;
     height: 200px;
+
 }
 
 .flex-home-item-right {
@@ -64,7 +65,5 @@
 .image-home-center {
     display: flex;
     cursor: pointer;
-    justify-content: center;
-    align-items: center;
     height: 500;
 }
