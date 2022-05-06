@@ -22,7 +22,7 @@ export default function Gallery() {
   const [category, setCategory] = useState('');
   const [newName, setNewName] = useState('');
   const [newLink, setNewLink] = useState('');
-  const [scribbles, setScribbles] = useState([[],[],[]]);
+  const [scribbles, setScribbles] = useState([]);
 
   const [body, setBody] = useState('');
   const [head, setHead] = useState('');
@@ -70,7 +70,20 @@ export default function Gallery() {
       })
 
   },
-    [refresh])
+    [refresh]
+    
+    )
+
+    const scribblesScroll = scribbles.map((scribble, index) => {
+      return {
+        id: index,
+        body: scribble['body'],
+        head: scribble["head"],
+        eyes: scribble["eyes"],
+        mouth: scribble["mouth"]
+      }
+    });
+
 
   const session = useSession();
 
@@ -78,7 +91,7 @@ export default function Gallery() {
 
 
   return (
-    <div className="content">
+    <div className="content-gallery">
 
       <div className="layers-header">
         <PageTitle
@@ -102,51 +115,27 @@ export default function Gallery() {
         />
       </div>
 
-      <div class="flex-home-container">
+      <div class="flex-gallery-container-scroll">
 
-        <div class="flex-home-item-right">
+        {scribblesScroll.map((scribble) => {
 
-          <div className='image-home-center ' onClick={e => changeScribble(0)}>
-            <LayerItem
-              body={scribbles[0]["body"]}
-              head={scribbles[0]["head"]}
-              eyes={scribbles[0]["eyes"]}
-              mouth={scribbles[0]["mouth"]}
-              size={300}
-            />
-          </div>
+            return <div class="flex-gallery-item-right">
+                      <div className='image-gallery-center ' onClick={e => changeScribble(scribble.id)}>
+                        <LayerItem
+                          body={scribble.body}
+                          head={scribble.head}
+                          eyes={scribble.eyes}
+                          mouth={scribble.mouth}
+                          size={300}
+                        />
+                      </div>
+                  </div>
 
-        </div>
-
-        <div class="flex-home-item-right">
-
-          <div className='image-home-center ' onClick={e => changeScribble(1)}>
-            <LayerItem
-              body={scribbles[1]["body"]}
-              head={scribbles[1]["head"]}
-              eyes={scribbles[1]["eyes"]}
-              mouth={scribbles[1]["mouth"]}
-              size={300}
-            />
-          </div>
+        })}
 
         </div>
 
-        <div class="flex-home-item-right">
 
-          <div className='image-home-center ' onClick={e => changeScribble(2)}>
-            <LayerItem
-              body={scribbles[2]["body"]}
-              head={scribbles[2]["head"]}
-              eyes={scribbles[2]["eyes"]}
-              mouth={scribbles[2]["mouth"]}
-              size={300}
-            />
-          </div>
-
-        </div>
-
-      </div>
     </div>
   )
 }
