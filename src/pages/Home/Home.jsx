@@ -178,7 +178,18 @@ export default function Home() {
           <br></br>
           <button className="page-home-button"> Draw a Scribble </button>
           <button className="page-home-button"> View my Gallery</button>
-          <button onClick={() => navigateToPage('/SignIn')} className="page-home-button"> Sign in</button>
+          {logged &&
+            <button
+              onClick={() => clear()}
+              className="page-home-button"
+            >
+              Logout
+            </button>
+          }
+          {!logged &&
+            <button onClick={() => navigateToPage('/SignIn')} className="page-home-button"> Sign in</button>
+          }
+          
 
         </div>
 

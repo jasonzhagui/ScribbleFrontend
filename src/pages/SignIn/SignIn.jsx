@@ -56,7 +56,7 @@ export default function SignIn() {
     }
 
     const handleSignup = () => {
-        axios.post(`${backendurl}user/register/${username}/${password}`)
+        axios.post(`${backendurl}/user/register/${username}/${password}`)
         .then((response) => {
             if (response.data) {
                 console.log(response.data);
