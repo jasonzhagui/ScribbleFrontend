@@ -23,6 +23,7 @@ export default function Gallery() {
   const [newName, setNewName] = useState('');
   const [newLink, setNewLink] = useState('');
   const [scribbles, setScribbles] = useState([]);
+  const [logged, setLogged] = useState(false);
 
   const [body, setBody] = useState('');
   const [head, setHead] = useState('');
@@ -40,10 +41,12 @@ export default function Gallery() {
 
   useEffect(() => {
     let username = localStorage.getItem('username')
+    if (username)
     axios.get(`${backendurl}/scribbles/${username}`)
       .then((response) => {
         if (response.data) {
           setScribbles(response.data)
+          setLogged(true);
           console.log(response.data)
 
           let newBody = new URLSearchParams(search).get('body');
@@ -84,6 +87,10 @@ export default function Gallery() {
       }
     });
 
+    function navigateToPage(path) {
+      history.push(path);
+    }
+
 
   const session = useSession();
 
@@ -105,6 +112,8 @@ export default function Gallery() {
         </button>
       </div>
 
+      {logged &&
+      <>
       <div className='image-center'>
         <LayerItem
           body = {body}
@@ -134,7 +143,15 @@ export default function Gallery() {
         })}
 
         </div>
+        </>
+      }
 
+      {!logged &&
+      <>
+        <h2>Seems like you're not logged in!</h2>
+        <button onClick={() => navigateToPage('/SignIn')} className="page-home-button"> Sign in</button>
+      </>
+      }
 
     </div>
   )
