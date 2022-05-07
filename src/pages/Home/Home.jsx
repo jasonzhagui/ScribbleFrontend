@@ -99,59 +99,6 @@ export default function Home() {
       <div>
         <h2>Make Scribble Art</h2>
       </div>
-      <button
-        onClick={() => navigateToPage('/layers')}
-        className="page-button"
-      >
-        Draw a Scribble
-      </button>
-      <button
-        onClick={() => navigateToPage('/gallery')}
-        className="page-button"
-      >
-        View my Gallery
-      </button>
-
-      {!logged &&
-        <>
-          <div>
-            <label for='username'> Username: </label>
-            <input
-              id='username'
-              type='text'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)} />
-          </div>
-
-          <div>
-            <label for='password'> Password: </label>
-            <input
-              id='password'
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)} />
-          </div>
-
-          <button
-            onClick={() => {
-              handleLogin();
-            }}
-            className="page-button"
-          >
-            Login
-          </button>
-
-        </>
-      }
-
-      {logged &&
-        <button
-          onClick={() => clear()}
-          className="page-button"
-        >
-          Logout
-        </button>
-      }
 
       <div class="flex-home-container">
 
