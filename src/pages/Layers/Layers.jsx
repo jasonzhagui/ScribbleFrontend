@@ -10,11 +10,7 @@ import { backendurl } from '../../config';
 import './layers.css';
 import LayerItem from '../../components/LayerItem/LayerItem';
 
-import { useSession } from '../../context/sessioncontext';
-
 export default function Layers() {
-
-  const [error, setError] = useState(undefined);
 
   const [body, setBody] = useState(undefined);
   const [head, setHead] = useState(undefined);
@@ -24,14 +20,10 @@ export default function Layers() {
   const [dropdown, setDropdown] = useState([]);
   const [layers, setLayers] = useState([]);
 
-  const [refresh, setRefresh] = useState(undefined);
-
   //const [scribble, setScribble] = useState([]);
   const scribble = [body, head, eyes, mouth];
 
   const history = useHistory();
-
-  const session = useSession();
 
   const search = useLocation().search;
 
@@ -76,8 +68,7 @@ export default function Layers() {
         }
       })
 
-  },
-    [refresh])
+  },[search])
 
   const handleCreateScribble = () => {
     var newLayers = {}
@@ -112,12 +103,6 @@ export default function Layers() {
           {"<--"}Go Back Home
         </button>
       </div>
-
-      {error && (
-        <div className="layers-error-box">
-          <p>{error.toString()}</p>
-        </div>
-      )}
 
       <div class="flex-container">
 

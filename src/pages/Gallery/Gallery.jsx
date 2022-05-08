@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 
-
 import PageTitle from '../../components/PageTitle/PageTitle';
 import {backendurl} from '../../config';
 
@@ -10,18 +9,9 @@ import './gallery.css';
 
 import LayerItem from '../../components/LayerItem/LayerItem';
 
-import {useSession} from '../../context/sessioncontext';
-
 export default function Gallery() {
-
   const history = useHistory();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [refresh, setRefresh] = useState(undefined);
-
-  const [category, setCategory] = useState('');
-  const [newName, setNewName] = useState('');
-  const [newLink, setNewLink] = useState('');
   const [scribbles, setScribbles] = useState([]);
   const [logged, setLogged] = useState(false);
 
@@ -31,13 +21,13 @@ export default function Gallery() {
   const [mouth, setMouth] = useState('');
 
   function changeScribble(index){
-
     setBody(scribbles[index]['body']);
     setHead(scribbles[index]['head']);
     setEyes(scribbles[index]['eyes']);
     setMouth(scribbles[index]['mouth']); 
-    
+
   }
+  const search = useLocation().search;
 
   useEffect(() => {
     let username = localStorage.getItem('username')
@@ -68,33 +58,24 @@ export default function Gallery() {
             setMouth(newMouth)
             
           }
-        
         }
       })
+  },[search])
 
-  },
-    [refresh]
-    
-    )
-
-    const scribblesScroll = scribbles.map((scribble, index) => {
-      return {
-        id: index,
-        body: scribble['body'],
-        head: scribble["head"],
-        eyes: scribble["eyes"],
-        mouth: scribble["mouth"]
-      }
-    });
-
-    function navigateToPage(path) {
-      history.push(path);
+  const scribblesScroll = scribbles.map((scribble, index) => {
+    return {
+      id: index,
+      body: scribble['body'],
+      head: scribble["head"],
+      eyes: scribble["eyes"],
+      mouth: scribble["mouth"]
     }
+  });
 
+  function navigateToPage(path) {
+    history.push(path);
+  }
 
-  const session = useSession();
-
-  const search = useLocation().search;
 
 
   return (

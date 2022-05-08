@@ -3,18 +3,13 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { backendurl } from '../../config';
 
-import { useSession } from '../../context/sessioncontext';
 import LayerItem from '../../components/LayerItem/LayerItem';
 import './home.css';
 
 export default function Home() {
   const history = useHistory();
 
-  const session = useSession();
-
   const [logged, setLogged] = useState(false);
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
   const [bodies, setBodies] = useState([]);
   const [heads, setHeads] = useState([]);
   const [eyes, setEyes] = useState([]);
@@ -52,8 +47,6 @@ export default function Home() {
           setHeads(headValues);
           setEyes(eyesValues);
           setMouths(mouthValues);
-
-
         }
       })
   }, [])
@@ -68,28 +61,12 @@ export default function Home() {
     }
   });
 
-  const handleLogin = () => {
-    axios.get(`${backendurl}/user/${username}/${password}`)
-      .then((response) => {
-        if (response.data) {
-          console.log(response.data);
-          console.log("username: ", username);
-          console.log("password: ", password);
-          localStorage.setItem('username', username);
-          localStorage.setItem('password', password);
-          setLogged(!logged);
-        }
-      })
-  }
-
   function navigateToPage(path) {
     history.push(path);
   }
 
   function clear() {
     localStorage.clear();
-    setUsername('');
-    setPassword('');
     setLogged(!logged);
   }
 

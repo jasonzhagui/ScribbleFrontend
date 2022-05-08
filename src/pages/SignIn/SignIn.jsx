@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { backendurl } from '../../config';
 
 import './signin.css';
 import LayerItem from '../../components/LayerItem/LayerItem';
-
-import { useSession } from '../../context/sessioncontext';
 
 export default function SignIn() {
     
@@ -68,15 +66,6 @@ export default function SignIn() {
             }
         })
     }
-
-    function clear() {
-        localStorage.clear();
-        setUsername('');
-        setPassword('');
-        setLogged(!logged);
-    }
-
-
 
     return (
         <div className='content'>
