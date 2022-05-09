@@ -37,7 +37,6 @@ export default function Gallery() {
         if (response.data) {
           setScribbles(response.data)
           setLogged(true);
-          console.log(response.data)
 
           let newBody = new URLSearchParams(search).get('body');
           let newHead = new URLSearchParams(search).get('head');
@@ -93,7 +92,7 @@ export default function Gallery() {
         </button>
       </div>
 
-      {logged &&
+      {logged && (scribbles.length!=0) &&
       <>
       <div className='image-center'>
         <LayerItem
@@ -125,6 +124,13 @@ export default function Gallery() {
 
         </div>
         </>
+      }
+
+      {logged && (scribbles.length==0) &&
+      <>
+        <h2>Seems like you haven't created any Scribbles yet!</h2>
+        <button onClick={() => navigateToPage('/layers')} className="page-home-button"> Draw a Scribble </button>
+      </>
       }
 
       {!logged &&

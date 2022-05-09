@@ -30,9 +30,6 @@ export default function SignIn() {
         axios.get(`${backendurl}/user/${username}/${password}`)
           .then((response) => {
             if (response.data) {
-              console.log(response.data);
-              console.log("username: ", username);
-              console.log("password: ", password);
               localStorage.setItem('username', username);
               localStorage.setItem('password', password);
               setLogged(!logged);
@@ -45,8 +42,6 @@ export default function SignIn() {
         axios.get(`${backendurl}/check/${username}`)
         .then((response) => {
             if (response.data) {
-                console.log(response.data);
-                console.log("username exists : ", username);
                 localStorage.setItem('username', username);
                 setExists(!exists);
             }
@@ -57,8 +52,6 @@ export default function SignIn() {
         axios.post(`${backendurl}/user/register/${username}/${password}`)
         .then((response) => {
             if (response.data) {
-                console.log(response.data);
-
                 localStorage.setItem('username', username);
                 localStorage.setItem('password', password);
                 setLogged(!logged);
