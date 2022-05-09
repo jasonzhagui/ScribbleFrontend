@@ -160,46 +160,6 @@ export default function Layers() {
 
           })}
 
-         {/*  <div className="page-dropdown">
-            <h2>Body:</h2>
-            <Select
-              isSearchable={false}
-              placeholder='Choose a body'
-              options={dropdown[0]}
-              onChange={(e) => { setBody(e.value) }}
-            />
-          </div>
-
-          <div className="page-dropdown">
-            <h2>Head:</h2>
-            <Select
-              isSearchable={false}
-              placeholder='Choose a head'
-              options={dropdown[1]}
-              onChange={(e) => { setHead(e.value) }}
-            />
-          </div>
-
-          <div className="page-dropdown">
-            <h2>Eyes:</h2>
-            <Select
-              isSearchable={false}
-              placeholder='Choose a eyes'
-              options={dropdown[2]}
-              onChange={(e) => { setEyes(e.value) }}
-            />
-          </div>
-
-          <div className="page-dropdown">
-            <h2>Mouth:</h2>
-            <Select
-              isSearchable={false}
-              placeholder='Choose a mouth'
-              options={dropdown[3]}
-              onChange={(e) => { setMouth(e.value) }}
-            />
-          </div> */}
-
         </div>
       </div>
 
