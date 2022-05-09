@@ -31,7 +31,6 @@ export default function Layers() {
     axios.get(`${backendurl}/layers/dropdownList`)
       .then((response) => {
         if (response.data) {
-
           setDropdown(response.data)
         }
       })
@@ -82,12 +81,39 @@ export default function Layers() {
     axios.post(`${backendurl}/scribbles/create/${username}/${newLayers[scribble[0]]}/${newLayers[scribble[1]]}/${newLayers[scribble[2]]}/${newLayers[scribble[3]]}`)
       .then((response) => {
         if (response.data) {
-          console.log(response.data);
           window.location.href =  `${window.location.origin}/gallery/?body=${scribble[0]}&head=${scribble[1]}&eyes=${scribble[2]}&mouth=${scribble[3]}`
         }
       })
   }
 
+    const atrrList = ['Body: ', 'Head: ', 'Eyes: ', 'Mouth: '];
+
+    const newDropdown = dropdown.map((dd, index) => {
+      return {
+        id: index,
+        attr: atrrList[index],
+        options: dd
+ 
+      }
+    });
+
+    console.log('newDropdown');
+    console.log(newDropdown);
+
+    function setByAttr(ind, val){
+      if (ind == 0){
+        setBody(val);
+      }
+      else if (ind == 1){
+        setHead(val);
+      }
+      else if (ind == 2){
+        setEyes(val);
+      }
+      else if (ind == 3){
+        setMouth(val);
+      }
+    }
 
   return (
     <div className="content">
@@ -117,8 +143,24 @@ export default function Layers() {
             />
           </div>
         </div>
+
         <div class="flex-item-left">
-          <div className="page-dropdown">
+
+          {newDropdown.map((dd) => {
+            
+            return <div className="page-dropdown">
+                    <h2>{dd.attr}</h2>
+                    <Select
+                      isSearchable={false}
+                      placeholder={'Choose a '+ dd.attr}
+                      options={dd.options}
+                      onChange={(e) => { setByAttr(dd.id, e.value) }}
+                    />
+                  </div>
+
+          })}
+
+         {/*  <div className="page-dropdown">
             <h2>Body:</h2>
             <Select
               isSearchable={false}
@@ -156,7 +198,8 @@ export default function Layers() {
               options={dropdown[3]}
               onChange={(e) => { setMouth(e.value) }}
             />
-          </div>
+          </div> */}
+
         </div>
       </div>
 
