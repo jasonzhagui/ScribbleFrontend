@@ -60,6 +60,17 @@ export default function SignIn() {
         })
     }
 
+    var illegalChars = [' ', '/', '<', '>', ':', ';', ',', '*', '[', ']', '?', '=', '+', '&', '|'];
+
+    function hasIllegalChar(s) {
+        for (let i = 0; i < illegalChars.length; i++){
+            if (s.indexOf(illegalChars[i]) >= 0){
+                return true;
+            }
+        }
+        return false;
+      }
+
     return (
         <div className='content'>
 
@@ -102,12 +113,21 @@ export default function SignIn() {
                         </div>
 
                       <button onClick={() => {
-                        setFlag(!flag);
-                        handleExists();
+                        if ((username.length != 0 ) & (!hasIllegalChar(username))){
+                            setFlag(!flag);
+                            handleExists();
+                        }
                       }}
                       className="page-sign-button">
                         Submit
                       </button>
+
+                      <div style = {{paddingTop:30}}>
+                        <p>Note:</p>
+                        <p>No spaces</p>
+                        <p>No special symbols: {illegalChars}</p>
+                      </div>
+
                       </>
                     }
                     {exists && flag &&
